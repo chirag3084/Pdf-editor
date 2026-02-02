@@ -1,119 +1,116 @@
+# 📝 Django PDF Editor & Converter
 
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Django](https://img.shields.io/badge/Django-3.x%2B-green)
+![License](https://img.shields.io/badge/License-MIT-orange)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-```markdown
-# PDF Editor
+A comprehensive, web-based PDF manipulation tool built with **Django** and powerful **JavaScript libraries**. This application serves as a complete suite for editing, annotated, converting, and compressing PDF documents directly within the browser.
 
-A web-based PDF editor built with Django, HTML, CSS, and JavaScript. This project allows users to add text, images, draw, highlight, erase content, zoom in/out, and navigate through pages. Additionally, it supports converting PDF files to Word, Excel, image formats, and compressing files.
+---
 
-## Features
+## 📸 Screenshots
 
-- **Add Text**: Insert customizable text into the PDF.
-- **Add Images**: Insert images into the PDF.
-- **Draw**: Freehand drawing on the PDF.
-- **Highlight**: Highlight text or areas on the PDF.
-- **Erase**: Erase content with configurable thickness.
-- **Zoom In/Out**: Zoom functionality for better viewing.
-- **Undo/Redo**: Undo and redo actions.
-- **Save**: Save the edited PDF.
-- **Export**: Export the edited PDF.
-- **Convert**: Convert PDF to Word, Excel, and image formats.
-- **Compress**: Compress images and files.
+![Dashboard Interface](/path/to/dashboard-screenshot.png)
+*The main editing interface featuring the toolbar and canvas.*
 
-## Technologies Used
+---
 
-- **Backend**: Django
-- **Frontend**: HTML, CSS, JavaScript
-- **Libraries**: 
-  - [pdf.js](https://mozilla.github.io/pdf.js/)
-  - [fabric.js](http://fabricjs.com/)
-  - [PDFLib](https://pdf-lib.js.org/)
-  - [Compressor.js](https://github.com/fengyuanchen/compressorjs)
-  - [docx](https://github.com/dolanmiu/docx)
-  - [ExcelJS](https://github.com/exceljs/exceljs)
+## ✨ Key Features
 
-## Setup and Installation
+### 🎨 PDF Editing Suite
+* **Add Text**: Insert custom text blocks with adjustable fonts, sizes, and colors.
+* **Insert Images**: Seamlessly overlay images (JPG, PNG) onto existing PDF pages.
+* **Freehand Drawing**: Draw, sign, or annotate freely using the drawing tool.
+* **Highlight & Erase**: Highlight key areas or remove unwanted content with a configurable eraser.
+* **Navigation & Zoom**: Intuitive page navigation and zoom controls for detailed editing.
+
+### 🔄 Conversion Tools
+* **PDF to Word**: Convert documents to editable `.docx` files.
+* **PDF to Excel**: Extract tables and data into `.xlsx` format.
+* **PDF to Image**: Render PDF pages as high-quality images.
+
+### 🛠️ Utilities
+* **Compression**: Reduce file size for images and PDFs without significant quality loss.
+* **Undo/Redo**: Full history support to revert or re-apply changes.
+* **Export Options**: Download modified files instantly.
+
+---
+
+## 🏗️ Tech Stack
+
+| Category | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Backend** | **Django** (Python) | Server-side logic, routing, and file handling. |
+| **Frontend** | **HTML5 / CSS3** | Structure and styling. |
+| **Scripting** | **JavaScript (ES6+)** | DOM manipulation and logic. |
+| **Rendering** | **PDF.js** | Rendering PDF pages in the browser. |
+| **Canvas** | **Fabric.js** | Object manipulation (text, drawing, shapes) on HTML5 Canvas. |
+| **Manipulation** | **PDFLib** | Modifying the actual PDF structure (merging, embedding). |
+| **Utilities** | **Compressor.js** | Client-side image compression. |
+| **Conversion** | **docx** / **ExcelJS** | Generating Word and Excel documents from JS. |
+
+---
+
+## 🚀 Setup and Installation
+
+Follow these steps to get a local copy up and running.
 
 ### Prerequisites
+* [Python 3.8+](https://www.python.org/downloads/)
+* [Node.js](https://nodejs.org/) (Optional, only if managing frontend packages via npm)
 
-- Python 3.x
-- Django 3.x or higher
-- Node.js and npm (for frontend dependencies if needed)
+### Step-by-Step Guide
 
-### Installation Steps
-
-1. **Clone the Repository**
-    ```sh
-    git clone https://github.com/your-username/pdf-editor.git
+1.  **Clone the Repository**
+    ```bash
+    git clone [https://github.com/your-username/pdf-editor.git](https://github.com/your-username/pdf-editor.git)
     cd pdf-editor
     ```
 
-2. **Create and Activate Virtual Environment**
-    ```sh
+2.  **Create Virtual Environment**
+    ```bash
+    # Windows
     python -m venv venv
-    source venv/bin/activate   # On Windows, use `venv\Scripts\activate`
+    venv\Scripts\activate
+
+    # macOS/Linux
+    python3 -m venv venv
+    source venv/bin/activate
     ```
 
-3. **Install Python Dependencies**
-    ```sh
+3.  **Install Dependencies**
+    ```bash
     pip install -r requirements.txt
     ```
+    *(Note: Ensure your `requirements.txt` contains `Django`, `Pillow`, and any other backend libs)*
 
-4. **Run Migrations**
-    ```sh
+4.  **Apply Database Migrations**
+    ```bash
     python manage.py migrate
     ```
 
-5. **Start the Development Server**
-    ```sh
+5.  **Run the Server**
+    ```bash
     python manage.py runserver
     ```
 
-6. **Open the Application**
-    Open your web browser and navigate to `http://127.0.0.1:8000`.
+6.  **Access the App**
+    Open your browser and navigate to: `http://127.0.0.1:8000`
 
-### Frontend Dependencies
+---
 
-Ensure that the following CDN links are included in your HTML file for frontend libraries:
+## 📦 Frontend Integration
+
+This project currently utilizes CDNs for simplicity. Ensure your base HTML template (`base.html` or `index.html`) includes the following:
 
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.3.1/fabric.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/compressorjs@1.0.7/dist/compressor.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/6.0.3/docx.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.2.1/exceljs.min.js"></script>
-```
+<script src="[https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js](https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js)"></script>
+<script src="[https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.min.js](https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.min.js)"></script>
+<script src="[https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.3.1/fabric.min.js](https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.3.1/fabric.min.js)"></script>
 
-## Usage
+<script src="[https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js](https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js)"></script>
+<script src="[https://cdn.jsdelivr.net/npm/compressorjs@1.0.7/dist/compressor.min.js](https://cdn.jsdelivr.net/npm/compressorjs@1.0.7/dist/compressor.min.js)"></script>
 
-1. **Upload PDF**: Upload a PDF file to start editing.
-2. **Edit PDF**: Use the toolbar to add text, images, draw, highlight, and erase content.
-3. **Save and Export**: Save your progress or export the edited PDF.
-4. **Convert PDF**: Convert the PDF to Word, Excel, or image format.
-5. **Compress**: Compress images or PDF files as needed.
-
-## Contributing
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/branch-name`).
-3. Make your changes and commit (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature/branch-name`).
-5. Create a new Pull Request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Acknowledgements
-
-- [pdf.js](https://mozilla.github.io/pdf.js/)
-- [fabric.js](http://fabricjs.com/)
-- [PDFLib](https://pdf-lib.js.org/)
-- [Compressor.js](https://github.com/fengyuanchen/compressorjs)
-- [docx](https://github.com/dolanmiu/docx)
-- [ExcelJS](https://github.com/exceljs/exceljs)
-
-```
-
-This `README.md` file provides a clear and comprehensive overview of the project, setup instructions, usage, and other relevant details. Adjust the repository URL, dependencies, and other specifics as needed for your project.
+<script src="[https://cdnjs.cloudflare.com/ajax/libs/docx/6.0.3/docx.min.js](https://cdnjs.cloudflare.com/ajax/libs/docx/6.0.3/docx.min.js)"></script>
+<script src="[https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.2.1/exceljs.min.js](https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.2.1/exceljs.min.js)"></script>
