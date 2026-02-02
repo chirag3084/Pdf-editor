@@ -7,14 +7,7 @@
 
 A comprehensive, web-based PDF manipulation tool built with **Django** and powerful **JavaScript libraries**. This application serves as a complete suite for editing, annotated, converting, and compressing PDF documents directly within the browser.
 
----
 
-## 📸 Screenshots
-
-![Dashboard Interface](/path/to/dashboard-screenshot.png)
-*The main editing interface featuring the toolbar and canvas.*
-
----
 
 ## ✨ Key Features
 
