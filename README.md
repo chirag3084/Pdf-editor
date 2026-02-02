@@ -1,4 +1,4 @@
-# 📝 Django PDF Editor & Converter
+# 📝 Django PDF Editor
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Django](https://img.shields.io/badge/Django-3.x%2B-green)
